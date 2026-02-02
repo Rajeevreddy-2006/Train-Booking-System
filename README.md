@@ -18,11 +18,10 @@ Tech Stack:
 - Object-Oriented Programming
 - STL
 - File Handling
-- Mutex for safe booking
 
 How to Run:
-1. Compile: g++ main.cpp -o train
-2. Run: ./train
+1. Compile: g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -Iinclude -o train
+2. Run: ./train.exe
 
 Author:
 Rajeev
