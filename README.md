@@ -75,27 +75,27 @@ This separation ensures the system is **maintainable, extensible, and testable**
 Railway-Management-Booking-System/
 │
 ├── data/
-│   ├── trains.txt
-│   ├── stations.txt
-│   ├── tickets.txt
-│   ├── users.txt
-│   ├── staff.txt
-│   ├── passengers_auth.txt
-│   └── fare_config.txt
+│ ├── trains.txt
+│ ├── stations.txt
+│ ├── tickets.txt
+│ ├── users.txt
+│ ├── staff.txt
+│ ├── passengers_auth.txt
+│ └── fare_config.txt
 │
 ├── include/
-│   ├── ui/
-│   ├── core/
-│   ├── domain/
-│   ├── infra/
-│   └── Authentication/
+│ ├── ui/
+│ ├── core/
+│ ├── domain/
+│ ├── infra/
+│ └── Authentication/
 │
 ├── src/
-│   ├── ui/
-│   ├── core/
-│   ├── domain/
-│   ├── infra/
-│   └── Authentication/
+│ ├── ui/
+│ ├── core/
+│ ├── domain/
+│ ├── infra/
+│ └── Authentication/
 │
 ├── main.cpp
 ├── .gitignore
