@@ -72,6 +72,7 @@ This separation ensures the system is **maintainable, extensible, and testable**
 ---
 
 ## 📂 Project Structure
+```text
 Railway-Management-Booking-System/
 │
 ├── data/
@@ -100,6 +101,7 @@ Railway-Management-Booking-System/
 ├── main.cpp
 ├── .gitignore
 └── README.md
+```
 
 How to Run:
 1. Compile: g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -Iinclude -o train
