@@ -72,49 +72,34 @@ This separation ensures the system is **maintainable, extensible, and testable**
 ---
 
 ## 📂 Project Structure
-Railway Management & Booking System
+Railway-Management-Booking-System/
 │
-├── UI Layer
-│   ├── include/ui/
-│   └── src/ui/
-│   └── Handles menus, input/output, and user interaction flow
+├── data/
+│   ├── trains.txt
+│   ├── stations.txt
+│   ├── tickets.txt
+│   ├── users.txt
+│   ├── staff.txt
+│   ├── passengers_auth.txt
+│   └── fare_config.txt
 │
-├── Core (Business Logic) Layer
-│   ├── include/core/
-│   └── src/core/
-│   └── Booking flow, seat allocation, cancellation, fare calculation
+├── include/
+│   ├── ui/
+│   ├── core/
+│   ├── domain/
+│   ├── infra/
+│   └── Authentication/
 │
-├── Domain (Model) Layer
-│   ├── include/domain/
-│   └── src/domain/
-│   └── Train, Route, Ticket, User, Coach, FareResult entities
+├── src/
+│   ├── ui/
+│   ├── core/
+│   ├── domain/
+│   ├── infra/
+│   └── Authentication/
 │
-├── Authentication Module
-│   ├── include/Authentication/
-│   └── src/Authentication/
-│   └── Admin and Passenger authentication logic
-│
-├── Infrastructure (Persistence) Layer
-│   ├── include/infra/
-│   └── src/infra/
-│   └── File handling, repositories, configuration loaders
-│
-├── Data Layer (Persistent Storage)
-│   └── data/
-│       ├── trains.txt
-│       ├── stations.txt
-│       ├── tickets.txt
-│       ├── users.txt
-│       ├── staff.txt
-│       ├── passengers_auth.txt
-│       └── fare_config.txt
-│
-├── Application Entry Point
-│   └── main.cpp
-│
-├── Configuration & Metadata
-│   ├── .gitignore
-│   └── README.md
+├── main.cpp
+├── .gitignore
+└── README.md
 
 How to Run:
 1. Compile: g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -Iinclude -o train
