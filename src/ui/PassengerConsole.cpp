@@ -160,26 +160,31 @@ void PassengerConsole::bookTicketFlow() {
         std::cin >> age;
         std::cout << "Gender : ";
         std::cin >> gender;
-        std::string result = bookingSystem.bookTicket(
-            userId, trainNumber, coachId, fromIndex, toIndex, journeyDate,
-            name, age, gender
-        );
-        if (result.empty()) {
-            std::cout << "Failed to book ticket for " << name << "\n";
-        }
-        else if (result == "WAITING") {
-            std::cout << "No seats available. Added to waiting list.\n";
-        }
-        else {
-            std::cout << "Ticket booked successfully for " << name << "\n";
-            std::cout << "Ticket file generated at:\n";
-            std::cout << result << "\n";
-            char choice;
-            std::cout << "Open ticket now? (y/n): ";
-            std::cin >> choice;
-            if (choice == 'y' || choice == 'Y') {
-                system(("start " + result).c_str());
+        try{
+            std::string result = bookingSystem.bookTicket(
+                userId, trainNumber, coachId, fromIndex, toIndex, journeyDate,
+                name, age, gender
+            );
+            if (result.empty()) {
+                std::cout << "Failed to book ticket for " << name << "\n";
             }
+            else if (result == "WAITING") {
+                std::cout << "No seats available. Added to waiting list.\n";
+            }
+            else {
+                std::cout << "Ticket booked successfully for " << name << "\n";
+                std::cout << "Ticket file generated at:\n";
+                std::cout << result << "\n";
+                char choice;
+                std::cout << "Open ticket now? (y/n): ";
+                std::cin >> choice;
+                if (choice == 'y' || choice == 'Y') {
+                    system(("start " + result).c_str());
+                }
+            }
+        }catch (const std::exception& e) {
+            // This catches FareCalculator::throw
+            std::cout << "System error during booking: " << e.what() << "\n";
         }
     }
     ConsoleStyle::pause();

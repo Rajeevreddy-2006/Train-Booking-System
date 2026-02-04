@@ -10,6 +10,7 @@ Coach::Coach(const std::string& id, int seatsCount)
     }
 }
 
+//display
 void Coach::displayCoach(const std::string& journeyDate) {
     int booked = 0;
     auto it = bookedSeatsByDate.find(journeyDate);
@@ -26,15 +27,10 @@ void Coach::displayCoach(const std::string& journeyDate) {
               << "\n";
 }
 
+//getters
 std::string& Coach::getCoachId() { return coachId; }
 
 int Coach::getTotalSeats() { return totalSeats; }
-
-int Coach::getAvailableSeats(const std::string& journeyDate) {
-    auto it = bookedSeatsByDate.find(journeyDate);
-    int booked = (it == bookedSeatsByDate.end()) ? 0 : it->second.size();
-    return totalSeats - booked;
-}
 
 int Coach::getWaitingCount(const std::string& journeyDate) {
     auto it = waitingListByDate.find(journeyDate);
@@ -68,19 +64,6 @@ void Coach::updateSeatCount(int newTotalSeats) {
     }
 }
 
-// int Coach::assignSeat() {
-//     if (availableSeats == 0) return -1;
-
-//     for (auto& seat : seats) {
-//         if (!seat.isBooked()) {
-//             seat.book();
-//             availableSeats--;
-//             return seat.getSeatNumber();
-//         }
-//     }
-//     return -1;
-// }
-
 bool Coach::bookSeat(int seatNumber) {
     if (seatNumber < 1 || seatNumber > totalSeats) return false;
 
@@ -91,23 +74,11 @@ bool Coach::bookSeat(int seatNumber) {
     return false;
 }
 
-// bool Coach::cancelSeat(int seatNumber) {
-//     if (seatNumber < 1 || seatNumber > totalSeats)
-//         return false;
-
-//     if (seats[seatNumber - 1].isBooked()) {
-//         seats[seatNumber - 1].cancel();
-//         availableSeats++;
-//         return true;
-//     }
-//     return false;
-// }
-
 void Coach::markSeatBooked(const std::string& journeyDate, int seatNumber) {
     bookedSeatsByDate[journeyDate].insert(seatNumber);
 }
 
-int Coach::getAvailableSeats(const std::string& journeyDate) const {
+int Coach::getAvailableSeats(const std::string& journeyDate) {
     int booked = 0;
     auto it = bookedSeatsByDate.find(journeyDate);
     if (it != bookedSeatsByDate.end()) {

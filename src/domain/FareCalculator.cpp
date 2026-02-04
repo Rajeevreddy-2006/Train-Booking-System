@@ -6,7 +6,7 @@ FareResult FareCalculator::calculate(int trainNo,int distanceKm,const std::strin
 
     auto coachIt = config.coachRatePerKm.find(coachId);
     if (coachIt == config.coachRatePerKm.end())
-        throw std::runtime_error("Invalid coach type");
+        throw std::runtime_error("Invalid coach type"); //throw is an signal for a error and catch will handle the error.
 
     double baseFare = coachIt->second * distanceKm;
 

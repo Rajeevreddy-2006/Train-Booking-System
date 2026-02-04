@@ -492,26 +492,25 @@ std::string BookingSystem::bookTicket(int userId,int trainNumber,const std::stri
             break;
         }
     }
-    if (!userPtr)
-        throw std::runtime_error("User not found");
+    if (!userPtr) return "";
     for (auto& train : trains) {
         if (train.getTrainNumber() != trainNumber) continue;
-        const std::string trainName = train.getTrainName();
-        const auto& route = train.getRoute();
+        std::string trainName = train.getTrainName();
+        auto& route = train.getRoute();
         if (fromIndex <= 0 || toIndex <= 0 ||
             fromIndex >= toIndex ||
             toIndex > static_cast<int>(route.size())) {
-            throw std::runtime_error("Invalid route indices");
+                return "";
         }
-        const auto& fromStop = route[fromIndex - 1];
-        const auto& toStop   = route[toIndex - 1];
+        auto& fromStop = route[fromIndex - 1];
+        auto& toStop   = route[toIndex - 1];
 
         int distanceKm = toStop.kmFromStart - fromStop.kmFromStart;
         if (distanceKm <= 0)
-            throw std::runtime_error("Invalid journey distance");
+            return "";
 
-        const std::string fromStation = getStationNameById(fromStop.stationId);
-        const std::string toStation = getStationNameById(toStop.stationId);
+        std::string fromStation = getStationNameById(fromStop.stationId);
+        std::string toStation = getStationNameById(toStop.stationId);
 
         for (auto& coach : train.getCoaches()) {
             if (coach.getCoachId() != coachId) continue;
@@ -541,9 +540,9 @@ std::string BookingSystem::bookTicket(int userId,int trainNumber,const std::stri
             saveToTicketFile("data/tickets.txt");
             return filePath;
         }
-        throw std::runtime_error("Coach not found");
+        return "";//Coach not found
     }
-    throw std::runtime_error("Train not found");
+    return "";//Train not found
 }
 
 bool BookingSystem::cancelTicket(int ticketId,const std::string& journeyDate) {
@@ -552,16 +551,16 @@ bool BookingSystem::cancelTicket(int ticketId,const std::string& journeyDate) {
         if (it->getjourneyDate() != journeyDate)
             throw std::runtime_error("Journey date mismatch");
 
-        const int trainNumber = it->getTrainNumber();
-        const std::string coachId = it->getCoachId();
-        const int seatNumber = it->getSeatNumber();
+        int trainNumber = it->getTrainNumber();
+        std::string coachId = it->getCoachId();
+        int seatNumber = it->getSeatNumber();
 
-        const std::string oldPNR = it->getPnr();
-        const std::string oldPassenger = it->getPassengerName();
+        std::string oldPNR = it->getPnr();
+        std::string oldPassenger = it->getPassengerName();
 
         for (auto& train : trains) {
             if (train.getTrainNumber() != trainNumber) continue;
-            const std::string trainName = train.getTrainName();
+            std::string trainName = train.getTrainName();
 
             for (auto& coach : train.getCoaches()) {
                 if (coach.getCoachId() != coachId) continue;
@@ -574,12 +573,12 @@ bool BookingSystem::cancelTicket(int ticketId,const std::string& journeyDate) {
                     if (newSeat != -1) {
                         std::string newPNR = generatePNR(trainNumber, journeyDate);
 
-                        const auto& route = train.getRoute();
-                        const auto& fromStop = route.front();
-                        const auto& toStop   = route.back();
+                        auto& route = train.getRoute();
+                        auto& fromStop = route.front();
+                        auto& toStop   = route.back();
 
-                        const std::string fromStation = getStationNameById(fromStop.stationId);
-                        const std::string toStation = getStationNameById(toStop.stationId);
+                        std::string fromStation = getStationNameById(fromStop.stationId);
+                        std::string toStation = getStationNameById(toStop.stationId);
 
                         Ticket promoted(nextTicketId++,newPNR,trainNumber,trainName,coachId,newSeat,wl.userId,journeyDate,
                             fromStation,toStation,wl.passengerName,wl.passengerAge,wl.passengerGender,wl.fare,false
