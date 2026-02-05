@@ -1,10 +1,8 @@
-# compiled files
+# Runtime generated tickets
+data/*.html
+data/tickets/*.html
+data/tickets.txt
+
+# Build artifacts
 *.exe
-*.out
-
-# build folders
-build/
-bin/
-
-# OS files
-.DS_Store
+*.o
