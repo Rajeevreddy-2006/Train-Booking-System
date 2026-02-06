@@ -15,9 +15,9 @@ private:
 public:
     User(int id, const std::string& name, const std::string& phone);
 
-    int getId() const;
-    std::string getName() const;
-    std::string getPhone() const;
+    int getId();
+    std::string getName();
+    std::string getPhone();
     void setName(const std::string& name);
     void setPhone(const std::string& phone);
 

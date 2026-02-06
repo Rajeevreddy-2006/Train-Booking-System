@@ -13,72 +13,72 @@ Ticket::Ticket(int ticketId,const std::string& pnr,int trainNumber,const std::st
       passengerAge(passengerAge),passengerGender(passengerGender),fareResult(fareResult),isWaiting(isWaiting) { }
 
 //GETTERS
-int Ticket::getTicketId() const {
+int Ticket::getTicketId() {
     return ticketId;
 }
 
-std::string Ticket::getPnr() const {
+std::string Ticket::getPnr() {
     return pnr;
 }
 
-int Ticket::getTrainNumber() const {
+int Ticket::getTrainNumber() {
     return trainNumber;
 }
 
-std::string Ticket::getTrainName() const {
+std::string Ticket::getTrainName() {
     return trainName;
 }
 
-std::string Ticket::getFromStation() const {
+std::string Ticket::getFromStation() {
     return fromStation;
 }
 
-std::string Ticket::getToStation() const {
+std::string Ticket::getToStation() {
     return toStation;
 }
 
-std::string Ticket::getjourneyDate() const {
+std::string Ticket::getjourneyDate() {
     return journeyDate;
 }
 
-std::string Ticket::getCoachId() const {
+std::string Ticket::getCoachId() {
     return coachId;
 }
 
-int Ticket::getSeatNumber() const {
+int Ticket::getSeatNumber() {
     return seatNumber;
 }
 
-bool Ticket::getIsWaiting() const {
+bool Ticket::getIsWaiting() {
     return isWaiting;
 }
 
-int Ticket::getUserId() const {
+int Ticket::getUserId() {
     return userId;
 }
 
-std::string Ticket::getPassengerName() const {
+std::string Ticket::getPassengerName() {
     return passengerName;
 }
 
-int Ticket::getPassengerAge() const {
+int Ticket::getPassengerAge() {
     return passengerAge;
 }
 
-std::string Ticket::getPassengerGender() const {
+std::string Ticket::getPassengerGender() {
     return passengerGender;
 }
 
-double Ticket::getTotalFare() const {
+double Ticket::getTotalFare() {
     return fareResult.totalFare;
 }
 
-const FareResult& Ticket::getFareResult() const {
+FareResult& Ticket::getFareResult() {
     return fareResult;
 }
 
 /* ---------- CONSOLE DISPLAY ---------- */
-void Ticket::displayTicket() const {
+void Ticket::displayTicket() {
     std::cout << "----------------------------------\n";
     std::cout << "PNR          : " << pnr << "\n";
     std::cout << "Train        : " << trainName
@@ -119,37 +119,45 @@ void Ticket::generateHTML(const std::string& filename, const std::string& userNa
     file << "<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'>\n";
 
     file << "<style>\n";
+    // Base Styles
     file << "body{background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;font-family:'Segoe UI',Tahoma,sans-serif;}\n";
     
-    // ✅ OFFLINE PATH: Points to the Images folder in your data directory
+    // FORCING PRINT COLORS - This is the fix for "everything gone"
+    file << "@media print {\n";
+    file << "  body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; background: #f0f2f5 !important; }\n";
+    file << "  .print-btn { display: none !important; }\n"; // Hides print button on paper
+    file << "  .ticket-container { box-shadow: none !important; border: 1px solid #ccc; }\n";
+    file << "}\n";
+
     file << ".ticket-container{width:850px;height:520px;position:relative;border-radius:20px;overflow:hidden;box-shadow:0 15px 35px rgba(0,0,0,0.2);"
-         << "background:url('Images/ticket_background.jpg') center/cover no-repeat;}\n";
+         << "background:url('Images/ticket_background.jpg') center/cover no-repeat; -webkit-print-color-adjust: exact;}\n";
 
-    file << ".brand-header{background:linear-gradient(to bottom, rgba(0,98,204,0.9), transparent);padding:15px 25px;color:white;display:flex;justify-content:space-between;align-items:flex-start;}\n";
+    file << ".brand-header{background:linear-gradient(to bottom, rgba(0,98,204,0.9), transparent);padding:15px 25px;color:white !important;display:flex;justify-content:space-between;align-items:flex-start; -webkit-print-color-adjust: exact;}\n";
     file << ".train-title-group{display:flex;flex-direction:column;gap:2px;}\n";
-    file << ".brand-header h2{margin:0;font-size:18px;letter-spacing:0.5px;display:flex;align-items:center;gap:8px;}\n";
-    file << ".pnr-train-info{font-size:12px;opacity:0.95;font-weight:400;}\n";
+    file << ".brand-header h2{margin:0;font-size:18px;letter-spacing:0.5px;display:flex;align-items:center;gap:8px;color:white !important;}\n";
+    file << ".pnr-train-info{font-size:12px;opacity:0.95;font-weight:400;color:white !important;}\n";
 
-    file << ".ticket-bubble{position:absolute;bottom:25px;left:25px;width:360px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);"
-         << "border:1px solid rgba(255,255,255,0.2);border-radius:20px;border-bottom-left-radius:2px;padding:22px;color:white;box-shadow:0 10px 30px rgba(0,0,0,0.4);}\n";
+    // Enhanced the background alpha for better print visibility
+    file << ".ticket-bubble{position:absolute;bottom:25px;left:25px;width:360px;background:rgba(0,0,0,0.85) !important;backdrop-filter:blur(12px);"
+         << "border:1px solid rgba(255,255,255,0.2);border-radius:20px;border-bottom-left-radius:2px;padding:22px;color:white !important;"
+         << "box-shadow:0 10px 30px rgba(0,0,0,0.4); -webkit-print-color-adjust: exact;}\n";
     
     file << ".passenger-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}\n";
-    file << ".passenger-name{font-size:19px;font-weight:bold;color:#4dabf7;}\n";
-    file << ".status-badge{background:" << statusColor << ";color:white;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:bold;box-shadow:0 0 15px rgba(40,167,69,0.6);}\n";
+    file << ".passenger-name{font-size:19px;font-weight:bold;color:#4dabf7 !important; -webkit-print-color-adjust: exact;}\n";
+    file << ".status-badge{background:" << statusColor << " !important;color:white !important;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:bold; -webkit-print-color-adjust: exact;}\n";
 
-    file << ".info-grid{font-size:14px;line-height:1.8;margin-bottom:15px;}\n";
-    file << ".seat-pill{background:#4dabf7;color:#000;padding:2px 12px;border-radius:15px;font-weight:bold;font-size:13px;margin-left:5px;}\n";
+    file << ".info-grid{font-size:14px;line-height:1.8;margin-bottom:15px;color:white !important;}\n";
+    file << ".seat-pill{background:#4dabf7 !important;color:#000 !important;padding:2px 12px;border-radius:15px;font-weight:bold;font-size:13px;margin-left:5px; -webkit-print-color-adjust: exact;}\n";
 
     file << ".fare-table{width:100%;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;font-size:13px;border-collapse:collapse;}\n";
-    file << ".fare-table td{padding:3px 0;color:#ccc;}\n";
-    file << ".fare-table .amount{text-align:right;font-family:monospace;}\n";
-    file << ".total-row td{padding-top:8px;color:white;font-weight:bold;font-size:16px;}\n";
+    file << ".fare-table td{padding:3px 0;color:#ccc !important;}\n";
+    file << ".fare-table .amount{text-align:right;font-family:monospace;color:white !important;}\n";
+    file << ".total-row td{padding-top:8px;color:white !important;font-weight:bold;font-size:16px;}\n";
 
     file << ".print-btn{background:#fff;color:#0062cc;border:none;padding:10px 22px;border-radius:30px;font-weight:bold;font-size:12px;cursor:pointer;"
-         << "text-transform:uppercase;box-shadow:0 4px 15px rgba(0,0,0,0.2);transition:all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);display:flex;align-items:center;gap:8px;}\n";
-    file << ".print-btn:hover{background:#0062cc;color:#fff;transform:translateY(-3px);box-shadow:0 8px 25px rgba(0, 98, 204, 0.4);}\n";
+         << "text-transform:uppercase;box-shadow:0 4px 15px rgba(0,0,0,0.2);transition:all 0.3s ease;display:flex;align-items:center;gap:8px;}\n";
+    file << ".print-btn:hover{background:#0062cc;color:#fff;}\n";
     
-    file << "@media print{.print-btn{display:none;}}\n";
     file << "</style></head><body>\n";
 
     file << "<div class='ticket-container'>\n";

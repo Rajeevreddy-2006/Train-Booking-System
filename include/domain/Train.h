@@ -46,8 +46,6 @@ public:
 
     //Seat Booking
     bool bookSeat(const std::string& coachId, int seatNumber);
-    bool cancelSeat(const std::string& coachId, int seatNumber);
-    int  bookSeatAuto(const std::string& coachId);
 
     //traintype
     TrainType getType();

@@ -3,11 +3,11 @@
 User::User(int id, const std::string& name, const std::string& phone)
     : userId(id), name(name), phone(phone) {}
 
-int User::getId() const { return userId; }
+int User::getId() { return userId; }
 
-std::string User::getName() const { return name; }
+std::string User::getName() { return name; }
 
-std::string User::getPhone() const { return phone; }
+std::string User::getPhone() { return phone; }
 
 void User::setName(const std::string& name) { this->name = name; }
 

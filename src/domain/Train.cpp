@@ -86,24 +86,6 @@ bool Train::bookSeat(const std::string& coachid,int seatNumber) {
     return false;
 }
 
-// bool Train::cancelSeat(const std::string& coachid,int seatNumber) {
-//     for(auto &c:coaches){
-//         if(c.getCoachId() == coachid){
-//             return c.cancelSeat(seatNumber);
-//         }
-//     }
-//     return false;
-// }
-
-// int Train::bookSeatAuto(const std::string& coachid) {
-//     for(auto& coach:coaches){
-//         if(coach.getCoachId() == coachid) {
-//             return coach.assignSeat();
-//         }
-//     }
-//     return -1;
-// }
-
 //traintype
 TrainType Train::getType() {
     return type;

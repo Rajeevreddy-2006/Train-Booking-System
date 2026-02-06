@@ -34,30 +34,30 @@ public:
     );
 
     /* ---------- Getters ---------- */
-    int getTicketId() const;
-    std::string getPnr() const;
+    int getTicketId();
+    std::string getPnr();
 
-    int getTrainNumber() const;
-    std::string getTrainName() const;
+    int getTrainNumber();
+    std::string getTrainName();
 
-    std::string getFromStation() const;
-    std::string getToStation() const;
-    std::string getjourneyDate() const;
+    std::string getFromStation();
+    std::string getToStation();
+    std::string getjourneyDate();
 
-    std::string getCoachId() const;
-    int getSeatNumber() const;
-    bool getIsWaiting() const;
+    std::string getCoachId();
+    int getSeatNumber();
+    bool getIsWaiting();
 
-    int getUserId() const;
+    int getUserId();
 
-    std::string getPassengerName() const;
-    int getPassengerAge() const;
-    std::string getPassengerGender() const;
+    std::string getPassengerName();
+    int getPassengerAge();
+    std::string getPassengerGender();
 
-    double getTotalFare() const;
-    const FareResult& getFareResult() const;
+    double getTotalFare();
+    FareResult& getFareResult();
 
-    void displayTicket() const;
+    void displayTicket();
     void generateHTML(const std::string& filename,const std::string& userName);
 };
 

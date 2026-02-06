@@ -9,10 +9,10 @@ private:
 public:
     Seat(int number);
 
-    bool isBooked() const;
+    bool isBooked();
     void book();
     void cancel();
-    int getSeatNumber() const;
+    int getSeatNumber();
 };
 
 #endif
