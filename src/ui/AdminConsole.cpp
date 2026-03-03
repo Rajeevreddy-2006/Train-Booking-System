@@ -190,7 +190,6 @@ void AdminConsole::fareManagement(BookingSystem& system) {
             ConsoleStyle::pause();
             continue;
         }
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         switch (choice) {
         case 1: { // VIEW CONFIG
             ConsoleStyle::clear();

@@ -103,6 +103,7 @@ void ConsoleStyle::menu(const std::vector<std::string>& options) {
 
 void ConsoleStyle::pause() {
     std::cout << "\nPress ENTER to continue...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get();
 }
 

@@ -17,6 +17,7 @@ over simple procedural coding.
 ### Passenger Operations
 - Passenger authentication
 - Source → Destination based ticket booking
+- Ticket Generating using HTML,CSS,JS
 - Date-wise seat allocation
 - Waiting list management
 - Ticket cancellation
@@ -26,7 +27,7 @@ over simple procedural coding.
 - Admin authentication
 - Train and route management
 - Station-wise route handling
-- Configurable fare rules (base fare, train charges, GST, discounts)
+- Configurable fare rules (Coach-wise rate per km,GST percentage,Reservation charge,Superfast charge,Tatkal charge,Discount percentage)
 - User and staff data management
 - Persistent storage of all system data using files
 
@@ -67,7 +68,6 @@ This separation ensures the system is **maintainable, extensible, and testable**
   - Polymorphism
 - STL containers and algorithms
 - File Handling for persistence
-- Basic thread safety using `mutex` for booking consistency
 
 ---
 
