@@ -68,7 +68,7 @@ void ConsoleStyle::showEnd() {
 }
 
 void ConsoleStyle::mainheader(const std::string& title) {
-    setCyan();
+    setSageGreen();
     std::cout << "\n=========================================\n";
     std::cout << " " << title << "\n";
     std::cout << "=========================================\n";
@@ -76,15 +76,15 @@ void ConsoleStyle::mainheader(const std::string& title) {
 }
 
 void ConsoleStyle::header(const std::string& title) {
-    setYellow();
+    setCyan();
     std::cout << "\n=====================\n";
-    std::cout << " " << title << "\n";
+    std::cout << "  " << title << "\n";
     std::cout << "=====================\n";
     reset();
 }
 
 void ConsoleStyle::menu(const std::vector<std::string>& options) {
-    setGreen();
+    setYellow();
     std::cout << "┌──────┬──────────────────────────────┐\n";
     std::cout << "│ No   │ Option                       │\n";
     std::cout << "├──────┼──────────────────────────────┤\n";
@@ -112,4 +112,6 @@ void ConsoleStyle::setRed()   { std::cout << "\033[1;31m"; }
 void ConsoleStyle::setYellow() { SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14); }
 void ConsoleStyle::setCyan() { std::cout << "\033[36m"; }
 void ConsoleStyle::setMagenta() { std::cout << "\033[35m"; }
+void ConsoleStyle::setBrightVoilet() { std::cout << "\033[95m"; }
+void ConsoleStyle::setSageGreen() { std::cout << "\033[38;2;156;175;136m"; }
 void ConsoleStyle::reset()    { std::cout << "\033[0m"; }

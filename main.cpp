@@ -34,7 +34,7 @@ int main() {
     ConsoleStyle::clear();
     ConsoleStyle::setBlue();
     ConsoleStyle::showEnd();
-    std::cout << "       🙏Thank you for using RailNest 🚆\n";
+    std::cout << "       🙏 Thank you for using RailNest 🚆\n";
     std::cout << "      Simple • Secure • Scalable Console App\n";
     ConsoleStyle::reset();
 

@@ -19,5 +19,7 @@ public:
     static void setYellow();
     static void setCyan();
     static void setMagenta();
+    static void setBrightVoilet();
+    static void setSageGreen();
     static void reset();
 };
