@@ -46,10 +46,14 @@ void EntryConsole::run(BookingSystem& system) {
                 break;
             case 4: {
                 char confirm;
+                ConsoleStyle::setMagenta();
                 std::cout << "Are you sure you want to exit? (y/n): ";
                 std::cin >> confirm;
-                if (confirm == 'y' || confirm == 'Y')
+                if (confirm == 'y' || confirm == 'Y'){
+                    ConsoleStyle::reset();
                     return;
+                }
+                ConsoleStyle::reset();
                 break;
             }
             default:

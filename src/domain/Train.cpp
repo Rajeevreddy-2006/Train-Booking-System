@@ -2,8 +2,8 @@
 #include <iostream>
 #include <algorithm>
 
-Train::Train(int trainno,const std::string& name)
-    : trainNumber(trainno), trainName(name) ,active(true) {}
+Train::Train(int trainno,const std::string& name,TrainType type)
+    : trainNumber(trainno), trainName(name) ,active(true) ,type(type) {}
 
 //status
 bool Train::isActive() { return active; }
@@ -89,6 +89,10 @@ bool Train::bookSeat(const std::string& coachid,int seatNumber) {
 //traintype
 TrainType Train::getType() {
     return type;
+}
+
+bool Train::isSuperfast() {
+    return type == TrainType::Express;
 }
 
 //Routes

@@ -64,11 +64,11 @@ void BookingSystem::rebuildSeatStateFromTickets() {
 }
 
 //train
-bool BookingSystem::addTrain(int trainNo,const std::string& name) {
-    for (auto& t : trains)
-        if (t.getTrainNumber() == trainNo)
-            return false;
-    trains.emplace_back(trainNo, name);
+bool BookingSystem::addTrain(int trainNo,const std::string& name,TrainType type){
+    for (auto& t : trains) {
+        if (t.getTrainNumber() == trainNo) return false;
+    }
+    trains.emplace_back(trainNo, name, type);
     return true;
 }
 
@@ -483,7 +483,7 @@ std::string BookingSystem::getStationNameById(int stationId) {
 }
 
 std::string BookingSystem::bookTicket(int userId,int trainNumber,const std::string& coachId,int fromIndex,int toIndex,
-    const std::string& journeyDate,const std::string& passengerName,int passengerAge,const std::string& passengerGender
+    const std::string& journeyDate,const std::string& passengerName,int passengerAge,const std::string& passengerGender,bool isTatkalSelected
 ) {
     User* userPtr = nullptr;
     for (auto& u : users) {
@@ -514,7 +514,11 @@ std::string BookingSystem::bookTicket(int userId,int trainNumber,const std::stri
 
         for (auto& coach : train.getCoaches()) {
             if (coach.getCoachId() != coachId) continue;
-            FareResult fareResult = FareCalculator::calculate( trainNumber, distanceKm, coachId, fareConfig );
+            FareContext ctx;
+            ctx.trainNo = trainNumber;  ctx.distanceKm = distanceKm;
+            ctx.coachId = coachId;  ctx.isSuperfast = train.isSuperfast();
+            ctx.isTatkal = isTatkalSelected;
+            FareResult fareResult = FareCalculator::calculate(ctx, fareConfig);
             WLDataType wlEntry{
                 userId,
                 passengerName,

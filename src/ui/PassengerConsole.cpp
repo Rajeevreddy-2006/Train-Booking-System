@@ -138,6 +138,16 @@ void PassengerConsole::bookTicketFlow() {
     std::cout << "Enter Journey Date (YYYY-MM-DD): ";
     std::cin >> journeyDate;
 
+    int tatkalChoice;
+    std::cout << "Book under Tatkal? (1 = Yes, 0 = No): ";
+    while (!(std::cin >> tatkalChoice) ||
+        (tatkalChoice != 0 && tatkalChoice != 1)) {
+        std::cout << "Invalid input. Enter 1 or 0: ";
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+    }
+    bool isTatkalSelected = (tatkalChoice == 1);
+
     ConsoleStyle::clear();
     ConsoleStyle::header("Available Coaches");
     bookingSystem.displayTrainCoaches(trainNumber,journeyDate);
@@ -163,7 +173,7 @@ void PassengerConsole::bookTicketFlow() {
         try{
             std::string result = bookingSystem.bookTicket(
                 userId, trainNumber, coachId, fromIndex, toIndex, journeyDate,
-                name, age, gender
+                name, age, gender,isTatkalSelected
             );
             if (result.empty()) {
                 std::cout << "Failed to book ticket for " << name << "\n";

@@ -25,7 +25,7 @@ public:
     void rebuildSeatStateFromTickets();
 
     // train
-    bool addTrain(int trainNo, const std::string& name);
+    bool addTrain(int trainNo, const std::string& name,TrainType type);
     bool removeTrain(int trainNo);
     bool toggleTrainStatus(int trainNo);
     int getTrainCount() const;
@@ -75,7 +75,7 @@ public:
     //ticket
     std::string getStationNameById(int stationId);
     std::string bookTicket(int userId,int trainNumber,const std::string& coachId,int fromIndex,int toIndex,const std::string& journeyDate,
-                               const std::string& passengerName,int passengerAge,const std::string& passengerGender);
+                               const std::string& passengerName,int passengerAge,const std::string& passengerGender,bool isTatkalSelected);
     bool cancelTicket(int ticketId,const std::string& journeyDate);
     void showAllTickets();
     Ticket* findTicketById(int ticketId);

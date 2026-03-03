@@ -172,7 +172,9 @@ void AdminConsole::fareManagement(BookingSystem& system) {
         ConsoleStyle::menu({
             "View Fare Configuration",
             "Update GST",
-            "Update Train Charge",
+            "Update Superfast Charge",
+            "Update Reservation Charge",
+            "Update Tatkal Charge",
             "Update Coach Fare",
             "Update Discount",
             "Back"
@@ -181,41 +183,36 @@ void AdminConsole::fareManagement(BookingSystem& system) {
         std::cout << "\nChoose option: ";
         if (!(std::cin >> choice)) {
             std::cin.clear();
-            std::cin.ignore(1000, '\n');
+            std::cin.ignore(10000, '\n');
             ConsoleStyle::setRed();
             std::cout << "Invalid input.\n";
             ConsoleStyle::reset();
             ConsoleStyle::pause();
             continue;
         }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         switch (choice) {
-        case 1: { //VIEW CONFIG
+        case 1: { // VIEW CONFIG
             ConsoleStyle::clear();
             ConsoleStyle::header("FARE CONFIGURATION");
 
             std::cout << "GST (%): " << fc.gstPercent << "\n";
             std::cout << "Discount (%): " << fc.discountPercent << "\n\n";
-
+            std::cout << "Superfast Charge: " << fc.superfastCharge << "\n";
+            std::cout << "Reservation Charge: " << fc.reservationCharge << "\n";
+            std::cout << "Tatkal Charge: " << fc.tatkalCharge << "\n\n";
             std::cout << "Coach Fare (per km):\n";
             for (const auto& [coach, rate] : fc.coachRatePerKm) {
                 std::cout << "  " << coach << " : " << rate << "\n";
             }
-
-            std::cout << "\nTrain Charges:\n";
-            for (const auto& [trainNo, charge] : fc.trainCharge) {
-                std::cout << "  Train " << trainNo << " : " << charge << "\n";
-            }
-
             ConsoleStyle::pause();
             break;
         }
-        case 2: { //UPDATE GST
+        case 2: { // UPDATE GST
             ConsoleStyle::clear();
             ConsoleStyle::header("UPDATE GST");
-
             std::cout << "Enter new GST percentage: ";
             std::cin >> fc.gstPercent;
-
             system.saveFareConfig();
             ConsoleStyle::setGreen();
             std::cout << "GST updated successfully.\n";
@@ -223,59 +220,75 @@ void AdminConsole::fareManagement(BookingSystem& system) {
             ConsoleStyle::pause();
             break;
         }
-        case 3: { //UPDATE TRAIN CHARGE
+        case 3: { // UPDATE SUPERFAST
             ConsoleStyle::clear();
-            ConsoleStyle::header("UPDATE TRAIN CHARGE");
+            ConsoleStyle::header("UPDATE SUPERFAST CHARGE");
 
-            int trainNo;
-            double charge;
+            std::cout << "Enter new superfast charge: ";
+            std::cin >> fc.superfastCharge;
 
-            std::cout << "\nTrain Charges:\n";
-            for (const auto& [trainNo, charge] : fc.trainCharge) {
-                std::cout << "  Train " << trainNo << " : " << charge << "\n";
-            }
-
-            std::cout << "\nEnter Train Number: ";
-            std::cin >> trainNo;
-            std::cout << "Enter new charge: ";
-            std::cin >> charge;
-
-            fc.trainCharge[trainNo] = charge;
             system.saveFareConfig();
-
             ConsoleStyle::setGreen();
-            std::cout << "Train charge updated successfully.\n";
+            std::cout << "Superfast charge updated successfully.\n";
             ConsoleStyle::reset();
             ConsoleStyle::pause();
             break;
         }
-        case 4: { //UPDATE COACH FARE
+        case 4: { // UPDATE RESERVATION
+            ConsoleStyle::clear();
+            ConsoleStyle::header("UPDATE RESERVATION CHARGE");
+
+            std::cout << "Enter new reservation charge: ";
+            std::cin >> fc.reservationCharge;
+
+            system.saveFareConfig();
+            ConsoleStyle::setGreen();
+            std::cout << "Reservation charge updated successfully.\n";
+            ConsoleStyle::reset();
+            ConsoleStyle::pause();
+            break;
+        }
+        case 5: { // UPDATE TATKAL
+            ConsoleStyle::clear();
+            ConsoleStyle::header("UPDATE TATKAL CHARGE");
+
+            std::cout << "Enter new tatkal charge: ";
+            std::cin >> fc.tatkalCharge;
+
+            system.saveFareConfig();
+            ConsoleStyle::setGreen();
+            std::cout << "Tatkal charge updated successfully.\n";
+            ConsoleStyle::reset();
+            ConsoleStyle::pause();
+            break;
+        }
+        case 6: { // UPDATE COACH FARE
             ConsoleStyle::clear();
             ConsoleStyle::header("UPDATE COACH FARE");
 
             std::string coach;
             double rate;
 
-            std::cout << "Coach Fare (per km):\n";
-            for (const auto& [coach, rate] : fc.coachRatePerKm) {
-                std::cout << "  " << coach << " : " << rate << "\n";
+            std::cout << "Current Coach Fare (per km):\n";
+            for (const auto& [c, r] : fc.coachRatePerKm) {
+                std::cout << "  " << c << " : " << r << "\n";
             }
 
-            std::cout << "Enter coach type (GEN / SL / AC3 / AC2): ";
+            std::cout << "\nEnter coach type (GEN / SL / AC3 / AC2): ";
             std::cin >> coach;
-            std::cout << "Enter fare per km: ";
+
+            std::cout << "Enter new fare per km: ";
             std::cin >> rate;
 
             fc.coachRatePerKm[coach] = rate;
             system.saveFareConfig();
-
             ConsoleStyle::setGreen();
             std::cout << "Coach fare updated successfully.\n";
             ConsoleStyle::reset();
             ConsoleStyle::pause();
             break;
         }
-        case 5: { //UPDATE DISCOUNT
+        case 7: { // UPDATE DISCOUNT
             ConsoleStyle::clear();
             ConsoleStyle::header("UPDATE DISCOUNT");
 
@@ -289,10 +302,11 @@ void AdminConsole::fareManagement(BookingSystem& system) {
             ConsoleStyle::pause();
             break;
         }
-        case 6: return;
+        case 8:
+            return;
         default:
             ConsoleStyle::setRed();
-            std::cout << "Invalid choice\n";
+            std::cout << "Invalid choice.\n";
             ConsoleStyle::reset();
             ConsoleStyle::pause();
         }

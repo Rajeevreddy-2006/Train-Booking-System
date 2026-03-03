@@ -3,7 +3,7 @@
 
 Seat::Seat(int number): seatNumber(number),booked(false) {}
 
-bool Seat::isBooked() const {
+bool Seat::isBooked() {
     return booked;
 }
 
@@ -15,6 +15,6 @@ void Seat::cancel() {
     booked=false;
 }
 
-int Seat::getSeatNumber() const {
+int Seat::getSeatNumber() {
     return seatNumber;
 }

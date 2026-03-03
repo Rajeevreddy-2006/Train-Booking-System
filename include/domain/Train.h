@@ -7,8 +7,7 @@
 
 enum class TrainType {
     Passenger,
-    Express,
-    Premium
+    Express
 };
 
 struct RouteStop {
@@ -26,7 +25,7 @@ private:
     std::vector<RouteStop> routeStations;// ordered station IDs
 
 public:
-    Train(int trainNo, const std::string& name);
+    Train(int trainNo, const std::string& name,TrainType type);
 
     //status
     bool isActive();
@@ -49,6 +48,7 @@ public:
 
     //traintype
     TrainType getType();
+    bool isSuperfast();
 
     //Route Management
     void addRouteStop(int stationId, int kmFromStart);

@@ -230,16 +230,37 @@ void AdminConsole::removeStationFlow(BookingSystem& system) {
 void AdminConsole::addTrainFlow(BookingSystem& system) {
     int trainNo;
     std::string name;
-
+    int typeChoice;
     std::cout << "Enter train number: ";
-    std::cin >> trainNo;
-
+    while (!(std::cin >> trainNo)) {
+        std::cout << "Invalid input. Enter a valid train number: ";
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+    }
+    std::cin.ignore(10000, '\n');
     std::cout << "Enter train name: ";
-    std::cin.ignore();
     std::getline(std::cin, name);
 
-    system.addTrain(trainNo, name);
+    std::cout << "\nSelect Train Type:\n";
+    std::cout << "1. Passenger\n";
+    std::cout << "2. Express\n";
+    std::cout << "Enter choice: ";
+    while (!(std::cin >> typeChoice) || (typeChoice != 1 && typeChoice != 2)) {
+        std::cout << "Invalid input. Please enter 1 or 2: ";
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+    }
 
+    TrainType type;
+    if (typeChoice == 1)
+        type = TrainType::Passenger;
+    else if (typeChoice == 2)
+        type = TrainType::Express;
+    else {
+        std::cout << "Invalid choice. Defaulting to Passenger.\n";
+        type = TrainType::Passenger;
+    }
+    system.addTrain(trainNo, name, type);
     std::cout << "Train added successfully\n";
     ConsoleStyle::pause();
 }

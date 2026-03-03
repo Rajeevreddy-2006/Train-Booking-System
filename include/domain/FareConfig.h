@@ -1,13 +1,16 @@
 #ifndef FARE_CONFIG_H
 #define FARE_CONFIG_H
 
-#include <unordered_map>
+#include <map>
 #include <string>
 
-class FareConfig {
-public:
-    std::unordered_map<std::string, double> coachRatePerKm;
-    std::unordered_map<int, double> trainCharge; 
+struct FareConfig {
+    std::map<std::string, double> coachRatePerKm;
+
+    double superfastCharge = 0.0;
+    double reservationCharge = 0.0;
+    double tatkalCharge = 0.0;
+
     double gstPercent = 0.0;
     double discountPercent = 0.0;
 };

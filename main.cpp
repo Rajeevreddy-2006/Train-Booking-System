@@ -20,10 +20,9 @@ int main() {
     system.loadAll();
 
     ConsoleStyle::clear();
-    //ConsoleStyle::setGreen();
+    ConsoleStyle::setBlue();
     ConsoleStyle::banner();
     ConsoleStyle::reset();
-    std::cout << "\nWelcome to RailNest 🚆\n";
     ConsoleStyle::pause();
 
     // Start application
@@ -33,10 +32,10 @@ int main() {
     system.saveAll();
 
     ConsoleStyle::clear();
-    //ConsoleStyle::setBlue();
+    ConsoleStyle::setBlue();
     ConsoleStyle::showEnd();
-    std::cout << "Thank you for using RailNest 🚆\n";
-    std::cout << "Simple • Secure • Scalable Console App\n";
+    std::cout << "       🙏Thank you for using RailNest 🚆\n";
+    std::cout << "      Simple • Secure • Scalable Console App\n";
     ConsoleStyle::reset();
 
     return 0;
