@@ -102,6 +102,34 @@ Railway-Management-Booking-System/
 ├── .gitignore
 └── README.md
 ```
+### System Welcome Screen
+
+![RailNest Home Page](data/Images/HomePage.png)
+
+This welcome screen appears when the application starts and introduces **RailNest – a Train Management and Reservation System** built as a console-based application.  
+It displays the system banner and waits for the user to press **ENTER** before proceeding to the main menu.
+
+### Main Menu
+
+![Main Menu](data/Images/MainMenu.png)
+
+The main menu acts as the central navigation hub of the system, allowing users to access different modules such as the Admin Panel, Passenger Portal, and Guest View.  
+It enables users to select an option to perform administrative tasks, book tickets, explore train information, or exit the application.
+
+### Admin Authentication
+
+![Admin Role](data/Images/Admin_Role.png)
+
+This screen allows administrators to select their role before accessing the admin panel, such as Head or Staff.  
+It helps the system organize administrative responsibilities and control access to management features.
+
+### Head Admin Panel
+
+![Head Admin Panel](data/Images/Admin_Head_Ctrl.png)
+
+If the administrator selects the **Head** role, the system opens the Head Admin Panel which provides full control over system management modules.  
+From this panel, the head admin can manage stations, trains, coaches, routes, fare configurations, staff records, and generate system reports.
+
 
 How to Run:
 1. Compile: g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -Iinclude -o train
