@@ -73,32 +73,86 @@ This separation ensures the system is **maintainable, extensible, and testable**
 
 ## 📂 Project Structure
 ```text
-Railway-Management-Booking-System/
+TRAIN-BOOKING-SYSTEM/
 │
 ├── data/
-│ ├── trains.txt
-│ ├── stations.txt
-│ ├── tickets.txt
-│ ├── users.txt
-│ ├── staff.txt
-│ ├── passengers_auth.txt
-│ └── fare_config.txt
+│   ├── Images/
+│   ├── fare_config.txt
+│   ├── passengers_auth.txt
+│   ├── staff.txt
+│   ├── stations.txt
+│   ├── tickets.txt
+│   ├── trains.txt
+│   └── users.txt
 │
 ├── include/
-│ ├── ui/
-│ ├── core/
-│ ├── domain/
-│ ├── infra/
-│ └── Authentication/
+│   ├── Authentication/
+│   │   ├── Admin_auth.h
+│   │   ├── PassengerAuth.h
+│   │   └── PasswordUtil.h
+│   │
+│   ├── core/
+│   │   └── BookingSystem.h
+│   │
+│   ├── domain/
+│   │   ├── Coach.h
+│   │   ├── FareCalculator.h
+│   │   ├── FareConfig.h
+│   │   ├── FareContext.h
+│   │   ├── FareResult.h
+│   │   ├── Passenger.h
+│   │   ├── Seat.h
+│   │   ├── Station.h
+│   │   ├── Ticket.h
+│   │   ├── Train.h
+│   │   └── User.h
+│   │
+│   ├── infra/
+│   │   └── Storage.h
+│   │
+│   └── ui/
+│       ├── AdminConsole.h
+│       ├── ConsoleStyle.h
+│       ├── EntryConsole.h
+│       ├── GuestConsole.h
+│       ├── InputHelper.h
+│       ├── PassengerConsole.h
+│       └── PassengerPortal.h
 │
 ├── src/
-│ ├── ui/
-│ ├── core/
-│ ├── domain/
-│ ├── infra/
-│ └── Authentication/
+│   ├── Authentication/
+│   │   ├── Admin_auth.cpp
+│   │   ├── PassengerAuth.cpp
+│   │   └── PasswordUtil.cpp
+│   │
+│   ├── core/
+│   │   └── BookingSystem.cpp
+│   │
+│   ├── domain/
+│   │   ├── Coach.cpp
+│   │   ├── FareCalculator.cpp
+│   │   ├── Passenger.cpp
+│   │   ├── Seat.cpp
+│   │   ├── Station.cpp
+│   │   ├── Ticket.cpp
+│   │   ├── Train.cpp
+│   │   └── User.cpp
+│   │
+│   ├── infra/
+│   │   └── Storage.cpp
+│   │
+│   └── ui/
+│       ├── Admin_helpers.cpp
+│       ├── AdminConsole.cpp
+│       ├── ConsoleStyle.cpp
+│       ├── EntryConsole.cpp
+│       ├── GuestConsole.cpp
+│       ├── InputHelper.cpp
+│       ├── PassengerConsole.cpp
+│       └── PassengerPortal.cpp
 │
 ├── main.cpp
+├── train.exe
 ├── .gitignore
 └── README.md
 ```
@@ -234,9 +288,11 @@ Guests can view available trains and stations, helping them check routes and ser
 This screen is displayed when the user exits the application, indicating that the session has ended successfully.  
 It thanks the user for using RailNest and provides a friendly closing message before the program terminates.
 
+```text
 How to Run:
 1. Compile: g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -Iinclude -o train
 2. Run: ./train.exe
+```
 
 Author:
 Rajeev
