@@ -171,6 +171,8 @@ TRAIN-BOOKING-SYSTEM/
 This welcome screen appears when the application starts and introduces **RailNest – a Train Management and Reservation System** built as a console-based application.  
 It displays the system banner and waits for the user to press **ENTER** before proceeding to the main menu.
 
+---
+
 ### Main Menu
 
 ![Main Menu](data/Images/MainMenu.png)
@@ -178,12 +180,16 @@ It displays the system banner and waits for the user to press **ENTER** before p
 The main menu acts as the central navigation hub of the system, allowing users to access different modules such as the Admin Panel, Passenger Portal, and Guest View.  
 It enables users to select an option to perform administrative tasks, book tickets, explore train information, or exit the application.
 
+---
+
 ### Admin Authentication
 
 ![Admin Role](data/Images/Admin_Role.png)
 
 This screen allows administrators to select their role before accessing the admin panel, such as Head or Staff.  
 It helps the system organize administrative responsibilities and control access to management features.
+
+---
 
 ### Admin Control Panels
 
@@ -209,6 +215,8 @@ It helps the system organize administrative responsibilities and control access 
 The **Head Admin Panel** provides full administrative control including staff management and system-level configuration.  
 The **Staff Admin Panel** allows operational management such as handling stations, trains, routes, and fare details.  
 The key difference is that **Head Admin has higher privileges**, while Staff members have limited operational access.
+
+---
 
 ### Administrative Management Modules
 
@@ -261,12 +269,16 @@ The key difference is that **Head Admin has higher privileges**, while Staff mem
 The administrative modules allow system managers to control all core railway operations including stations, trains, coaches, routes, and fare configuration.  
 These panels provide structured tools for managing staff accounts, generating operational reports, and maintaining system data efficiently.
 
+---
+
 ### Passenger Authentication
 
 ![Passenger Authentication](data/Images/Passenger_Authentication.png)
 
 This screen allows passengers to access the Passenger Portal where they can log in to their existing account or create a new account.  
 It ensures that only authenticated users can proceed to booking tickets and managing their reservations.
+
+---
 
 ### Passenger Console
 
@@ -275,6 +287,8 @@ It ensures that only authenticated users can proceed to booking tickets and mana
 After successful authentication, passengers access the Passenger Console which provides options to interact with the reservation system.  
 From this console, users can view trains and routes, book tickets, check their bookings, cancel tickets, manage their profile, or logout.
 
+---
+
 ### Ticket Generation
 
 ![Generated Ticket](data/Images/Ticket.png)
@@ -282,12 +296,16 @@ From this console, users can view trains and routes, book tickets, check their b
 After a successful booking, the system generates a detailed ticket containing passenger information, journey details, seat allocation, and fare breakdown.  
 The ticket displays the PNR number and total amount paid, allowing passengers to verify their reservation and print the ticket if needed.
 
+---
+
 ### Guest Console
 
 ![Guest Console](data/Images/Guest_ctrls.png)
 
 The Guest Console allows users to explore basic system information without creating an account.  
 Guests can view available trains and stations, helping them check routes and services before registering or booking tickets.
+
+---
 
 ### System Sign Off
 
@@ -306,23 +324,23 @@ It thanks the user for using RailNest and provides a friendly closing message be
 git clone https://github.com/Rajeevreddy-2006/Train-Booking-System.git
 ```
 
-3. **Open the terminal**
+2. **Open the terminal**
 
 This project uses formatted console output, so running it in a **large or full-screen terminal window** is recommended for the best interface experience.
 
-4. **Compile the program**
+3. **Compile the program**
 
 ```bash
 g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -o train.exe
 ```
 
-5. **Run the application**
+4. **Run the application**
 
 ```bash
 ./train.exe
 ```
 
-6. **The Railway Management & Train Booking System will now start and display the welcome screen.**
+5. **The Railway Management & Train Booking System will now start and display the welcome screen.**
 
 ---
 ## 🔗 Project Repository
