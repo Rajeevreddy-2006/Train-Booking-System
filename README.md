@@ -148,6 +148,41 @@ The **Head Admin Panel** provides full administrative control including staff ma
 The **Staff Admin Panel** allows operational management such as handling stations, trains, routes, and fare details.  
 The key difference is that **Head Admin has higher privileges**, while Staff members have limited operational access.
 
+### Passenger Authentication
+
+![Passenger Authentication](data/Images/Passenger_Authentication.png)
+
+This screen allows passengers to access the Passenger Portal where they can log in to their existing account or create a new account.  
+It ensures that only authenticated users can proceed to booking tickets and managing their reservations.
+
+### Passenger Console
+
+![Passenger Console](data/Images/Passenger_ctrls.png)
+
+After successful authentication, passengers access the Passenger Console which provides options to interact with the reservation system.  
+From this console, users can view trains and routes, book tickets, check their bookings, cancel tickets, manage their profile, or logout.
+
+### Ticket Generation
+
+![Generated Ticket](data/Images/Ticket.png)
+
+After a successful booking, the system generates a detailed ticket containing passenger information, journey details, seat allocation, and fare breakdown.  
+The ticket displays the PNR number and total amount paid, allowing passengers to verify their reservation and print the ticket if needed.
+
+### Guest Console
+
+![Guest Console](data/Images/Guest_ctrls.png)
+
+The Guest Console allows users to explore basic system information without creating an account.  
+Guests can view available trains and stations, helping them check routes and services before registering or booking tickets.
+
+### System Sign Off
+
+![System Sign Off](data/Images/SignOff.png)
+
+This screen is displayed when the user exits the application, indicating that the session has ended successfully.  
+It thanks the user for using RailNest and provides a friendly closing message before the program terminates.
+
 How to Run:
 1. Compile: g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -Iinclude -o train
 2. Run: ./train.exe
