@@ -148,6 +148,57 @@ The **Head Admin Panel** provides full administrative control including staff ma
 The **Staff Admin Panel** allows operational management such as handling stations, trains, routes, and fare details.  
 The key difference is that **Head Admin has higher privileges**, while Staff members have limited operational access.
 
+### Administrative Management Modules
+
+<table>
+<tr>
+<td align="center">
+<b>Station Management</b><br>
+<img src="data/Images/Admin_Station_ctrl.png" width="350">
+</td>
+
+<td align="center">
+<b>Train Management</b><br>
+<img src="data/Images/Admin_Train_ctrl.png" width="350">
+</td>
+
+<td align="center">
+<b>Coach Management</b><br>
+<img src="data/Images/Admin_Coach_ctrl.png" width="350">
+</td>
+
+<td align="center">
+<b>Route Management</b><br>
+<img src="data/Images/Admin_Route_ctrl.png" width="350">
+</td>
+</tr>
+
+<tr>
+<td align="center">
+<b>Fare Management</b><br>
+<img src="data/Images/Admin_Fare_ctrl.png" width="350">
+</td>
+
+<td align="center">
+<b>Staff Management</b><br>
+<img src="data/Images/Head_Staff_ctrl.png" width="350">
+</td>
+
+<td align="center">
+<b>Reports Panel</b><br>
+<img src="data/Images/Admin_Reports.png" width="350">
+</td>
+
+<td align="center">
+<b>Staff Profile</b><br>
+<img src="data/Images/Staff_Profile.png" width="350">
+</td>
+</tr>
+</table>
+
+The administrative modules allow system managers to control all core railway operations including stations, trains, coaches, routes, and fare configuration.  
+These panels provide structured tools for managing staff accounts, generating operational reports, and maintaining system data efficiently.
+
 ### Passenger Authentication
 
 ![Passenger Authentication](data/Images/Passenger_Authentication.png)
