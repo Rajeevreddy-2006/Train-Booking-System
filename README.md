@@ -7,29 +7,38 @@ The system not only handles **ticket booking and cancellation**, but also
 **manages trains, routes, fares, users, and authentication**, simulating how
 a real-world railway reservation and management backend operates.
 
-This project emphasizes **clean architecture, scalability, and system design**
-over simple procedural coding.
+This project emphasizes **clean architecture, scalability, and system design**.
 
 ---
 
 ## ✨ Core Capabilities
 
-### Passenger Operations
-- Passenger authentication
-- Source → Destination based ticket booking
-- Ticket Generating using HTML,CSS,JS
+## 👤 Passenger Operations
+
+- Passenger authentication and secure login
+- Source → destination based ticket booking
+- Ticket generation using **HTML, CSS, and JavaScript**
 - Date-wise seat allocation
 - Waiting list management
 - Ticket cancellation
 - Automatic fare calculation with detailed breakdown
 
-### Admin & System Management
-- Admin authentication
-- Train and route management
-- Station-wise route handling
-- Configurable fare rules (Coach-wise rate per km,GST percentage,Reservation charge,Superfast charge,Tatkal charge,Discount percentage)
-- User and staff data management
-- Persistent storage of all system data using files
+## 🛠️ Admin & System Management
+
+- Admin authentication with role-based access
+- Train management
+- Route and station management
+- Coach management
+- Configurable fare rules including:
+  - Coach-wise rate per kilometer
+  - GST percentage
+  - Reservation charge
+  - Superfast charge
+  - Tatkal charge
+  - Discount percentage
+- Staff management
+- System reports and analytics
+- Data storage using files
 
 ---
 
@@ -61,13 +70,9 @@ This separation ensures the system is **maintainable, extensible, and testable**
 ## 🛠️ Technologies & Concepts Used
 
 - Language: **C++**
-- Object-Oriented Programming:
-  - Encapsulation
-  - Abstraction
-  - Inheritance
-  - Polymorphism
-- STL containers and algorithms
-- File Handling for persistence
+- Object-Oriented Programming
+- STL containers and Algorithms
+- File Handling
 
 ---
 
@@ -156,6 +161,9 @@ TRAIN-BOOKING-SYSTEM/
 ├── .gitignore
 └── README.md
 ```
+
+---
+
 ### System Welcome Screen
 
 ![RailNest Home Page](data/Images/HomePage.png)
@@ -288,12 +296,37 @@ Guests can view available trains and stations, helping them check routes and ser
 This screen is displayed when the user exits the application, indicating that the session has ended successfully.  
 It thanks the user for using RailNest and provides a friendly closing message before the program terminates.
 
-```text
-How to Run:
-1. Compile: g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -Iinclude -o train
-2. Run: ./train.exe
+---
+
+## ▶️ Program Execution
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/Rajeevreddy-2006/Train-Booking-System.git
 ```
 
-Author:
-Rajeev
-GitHub: https://github.com/Rajeevreddy-2006
+3. **Open the terminal**
+
+This project uses formatted console output, so running it in a **large or full-screen terminal window** is recommended for the best interface experience.
+
+4. **Compile the program**
+
+```bash
+g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -o train.exe
+```
+
+5. **Run the application**
+
+```bash
+./train.exe
+```
+
+6. **The Railway Management & Train Booking System will now start and display the welcome screen.**
+
+---
+## 🔗 Project Repository
+
+GitHub Repository: https://github.com/Rajeevreddy-2006/Train-Booking-System
+
+---
