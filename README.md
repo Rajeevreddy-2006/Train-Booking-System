@@ -123,13 +123,30 @@ It enables users to select an option to perform administrative tasks, book ticke
 This screen allows administrators to select their role before accessing the admin panel, such as Head or Staff.  
 It helps the system organize administrative responsibilities and control access to management features.
 
-### Head Admin Panel
+### Admin Control Panels
 
-![Head Admin Panel](data/Images/Admin_Head_Ctrl.png)
+<table>
+<tr>
+<td align="center">
 
-If the administrator selects the **Head** role, the system opens the Head Admin Panel which provides full control over system management modules.  
-From this panel, the head admin can manage stations, trains, coaches, routes, fare configurations, staff records, and generate system reports.
+**Head Admin Panel**
 
+<img src="data/Images/Admin_Head_Ctrl.png" width="450">
+
+</td>
+<td align="center">
+
+**Staff Admin Panel**
+
+<img src="data/Images/Admin_Staff_ctrls.png" width="450">
+
+</td>
+</tr>
+</table>
+
+The **Head Admin Panel** provides full administrative control including staff management and system-level configuration.  
+The **Staff Admin Panel** allows operational management such as handling stations, trains, routes, and fare details.  
+The key difference is that **Head Admin has higher privileges**, while Staff members have limited operational access.
 
 How to Run:
 1. Compile: g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -Iinclude -o train
