@@ -164,6 +164,8 @@ TRAIN-BOOKING-SYSTEM/
 
 ---
 
+## Train System Workflow
+
 ### System Welcome Screen
 
 ![RailNest Home Page](data/Images/HomePage.png)
@@ -326,7 +328,7 @@ git clone https://github.com/Rajeevreddy-2006/Train-Booking-System.git
 
 2. **Open the terminal**
 
-This project uses formatted console output, so running it in a **large or full-screen terminal window** is recommended for the best interface experience.
+  This project uses formatted console output, so running it in a **large or full-screen terminal window** is recommended for the best interface experience.
 
 3. **Compile the program**
 
@@ -343,6 +345,22 @@ g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Au
 5. **The Railway Management & Train Booking System will now start and display the welcome screen.**
 
 ---
+
+# 📚 Resources
+
+The following resources were used for improving the console interface and visual styling of the project.
+
+- **ASCII Art for Title**  
+  https://patorjk.com
+
+- **ANSI Escape Sequences (Console Styling Reference)**  
+  https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
+
+- **ASCII Art for Train Illustration**  
+  https://www.asciiart.eu
+
+---
+
 ## 🔗 Project Repository
 
 GitHub Repository: https://github.com/Rajeevreddy-2006/Train-Booking-System
