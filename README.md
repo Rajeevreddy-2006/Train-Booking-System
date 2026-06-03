@@ -333,7 +333,7 @@ git clone https://github.com/Rajeevreddy-2006/Train-Booking-System.git
 3. **Compile the program**
 
 ```bash
-g++ main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -o train.exe
+g++ -I include main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*.cpp src/Authentication/*.cpp -o train.exe
 ```
 
 4. **Run the application**
