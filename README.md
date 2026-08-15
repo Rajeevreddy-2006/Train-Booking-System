@@ -11,9 +11,9 @@ This project emphasizes **clean architecture, scalability, and system design**.
 
 ---
 
-## ✨ Core Capabilities
+## Core Capabilities
 
-## 👤 Passenger Operations
+## Passenger Operations
 
 - Passenger authentication and secure login
 - Source → destination based ticket booking
@@ -23,7 +23,7 @@ This project emphasizes **clean architecture, scalability, and system design**.
 - Ticket cancellation
 - Automatic fare calculation with detailed breakdown
 
-## 🛠️ Admin & System Management
+## Admin & System Management
 
 - Admin authentication with role-based access
 - Train management
@@ -42,7 +42,7 @@ This project emphasizes **clean architecture, scalability, and system design**.
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 The project follows a **layered and modular architecture**, similar to
 real backend systems:
@@ -67,7 +67,7 @@ This separation ensures the system is **maintainable, extensible, and testable**
 
 ---
 
-## 🛠️ Technologies & Concepts Used
+## Technologies & Concepts Used
 
 - Language: **C++**
 - Object-Oriented Programming
@@ -76,7 +76,7 @@ This separation ensures the system is **maintainable, extensible, and testable**
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```text
 TRAIN-BOOKING-SYSTEM/
 │
@@ -318,7 +318,7 @@ It thanks the user for using RailNest and provides a friendly closing message be
 
 ---
 
-## ▶️ Program Execution
+## Program Execution
 
 1. **Clone the repository**
 
@@ -346,7 +346,7 @@ g++ -I include main.cpp src/domain/*.cpp src/core/*.cpp src/infra/*.cpp src/ui/*
 
 ---
 
-# 📚 Resources
+# Resources
 
 The following resources were used for improving the console interface and visual styling of the project.
 
